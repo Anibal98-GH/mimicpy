@@ -5,6 +5,10 @@ greasyorders = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]
 greasy_chars = [" ", "(", ":", "-", ".", "/", ")", ";", "=", "?", ""]
 greasy_versions = ["8", "99", "24"]
 chrome_versions = [
+    "120",
+    "121",
+    "122",
+    "123",
     "124",
     "125",
     "126",
@@ -16,6 +20,10 @@ chrome_versions = [
     "132",
     "133",
     "134",
+    "135",
+    "136",
+    "137",
+    "138",
 ]
 
 
@@ -51,8 +59,10 @@ def generateSecChUaFullVersionList(greased, majorVersion, fullVersion):
 
 
 class Mimic:
-    def __init__(self):
-        majorVersion = random.choice(chrome_versions)
+    def __init__(self, force_version=None):
+        majorVersion = (
+            force_version if force_version else random.choice(chrome_versions)
+        )
         fullVersion = (
             f"{majorVersion}.0.{random.randrange(0, 9999)}.{random.randrange(0, 999)}"
         )
